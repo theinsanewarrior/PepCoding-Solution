@@ -1,5 +1,5 @@
-package Basics of Programming.Functions and Number System;
-
+// package Basics of Programming.Functions and Number System;
+import java.util.*;
 public class AnyBaseMultiplication {
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
