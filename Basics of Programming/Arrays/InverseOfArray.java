@@ -5,8 +5,7 @@ public class InverseOfArray {
         StringBuilder sb = new StringBuilder();
 
         for (int val: a) {
-            sb.append(val + "
-");
+            sb.append(val + "");
         }
         System.out.println(sb);
     }
