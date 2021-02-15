@@ -30,8 +30,7 @@ public class ExitPointOfaMatrix {
                 i--;
         }
         
-        System.out.println(r+ "
-"+ c);
+        System.out.println(r+ " "+ c);
         
     }
 }
