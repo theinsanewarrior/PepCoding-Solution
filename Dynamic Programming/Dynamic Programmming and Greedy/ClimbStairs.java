@@ -10,6 +10,7 @@ public class ClimbStairs {
         System.out.println(ans);
     }
     
+    // memoization
     public static int ways(int n, int[] dp){
         if(n==0)
             return 1;

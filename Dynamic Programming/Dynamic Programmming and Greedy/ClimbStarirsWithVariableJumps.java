@@ -15,6 +15,7 @@ public class ClimbStarirsWithVariableJumps{
         
     }
     
+    // tabulation
     public static int climbStairsWithVariableJumps(int[] arr, int[] dp){
         int n = arr.length;
         dp[n] = 1;
