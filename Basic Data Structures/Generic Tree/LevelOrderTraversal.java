@@ -90,18 +90,18 @@ public class LevelOrderTraversal {
         System.out.println("Node Post " + node.data);
       }
     
-        public static void levelOrder(Node node){
-            // write your code here
-            Queue <Node> buffer = new ArrayDeque<>();
-            buffer.add(node);
-            while(buffer.size()!=0){
-                for(int i=0; i<buffer.peek().children.size(); i++ ){
-                    buffer.add(buffer.peek().children.get(i) );
-                }
-                System.out.print(buffer.remove().data + " ");
+      public static void levelOrder(Node node){
+        // write your code here
+        Queue <Node> buffer = new ArrayDeque<>();
+        buffer.add(node);
+        while(buffer.size()!=0){
+            for(int i=0; i<buffer.peek().children.size(); i++ ){
+                buffer.add(buffer.peek().children.get(i) );
             }
-            System.out.println(".");
+            System.out.print(buffer.remove().data + " ");
         }
+        System.out.println(".");
+      }
     
       public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
