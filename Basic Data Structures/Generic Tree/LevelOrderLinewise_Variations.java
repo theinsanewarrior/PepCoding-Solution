@@ -71,13 +71,31 @@ public class LevelOrderLinewise_Variations {
 
     }
 
-    public static 
+    public static void levelOrderLinewise2(Node node){
+      Queue<Node>q = new ArrayDeque<>();
+      q.add(node);
+
+      while(!q.isEmpty()){
+        int size = q.size();
+
+        for(int i=0; i<size; i++){
+          Node curr = q.remove();
+
+          for(int j=0; j<curr.children.size(); j++){
+            q.add(curr.children.get(j));
+          }
+          System.out.print(curr.data+" ");
+        }
+        System.out.println();
+      }
+    }
 
     public static void main(String[] args){
-        int[] arr = {10,20,50,-1,60,-1,-1,30,70,-1,80,110,-1,120,-1,-1,90,-1,-1,40,100,-1,-1,-1};
-        Node root = construct(arr);
-        levelOrderLinewise1(root);
-        // display(root);
+      int[] arr = {10,20,50,-1,60,-1,-1,30,70,-1,80,110,-1,120,-1,-1,90,-1,-1,40,100,-1,-1,-1};
+      Node root = construct(arr);
+      levelOrderLinewise2(root);
+      // display(root);
+
     }
 
 }
