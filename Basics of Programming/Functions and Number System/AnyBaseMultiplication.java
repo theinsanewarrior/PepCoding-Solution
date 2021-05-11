@@ -13,7 +13,7 @@ public class AnyBaseMultiplication {
 
     public static int getProduct(int b, int n1, int n2) {
         // write your code here
-        int ans = 0, pow=1;;
+        int ans = 0, pow=1;
         while(n2!=0){
             int n = n2%10;
             int val = single_multiply(b, n1, n);
