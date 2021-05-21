@@ -18,6 +18,6 @@ public class TilingWithMx1Tiles {
             }
         }
         System.out.println(dp[n]);
-
+        
     }
 }
