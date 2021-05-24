@@ -31,7 +31,7 @@ public class GetConnectedComponents {
       
      public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-  
+        
         int vtces = Integer.parseInt(br.readLine());
         ArrayList<Edge>[] graph = new ArrayList[vtces];
         for (int i = 0; i < vtces; i++) {
