@@ -68,14 +68,14 @@ public class NQueenPermutations_1d_queenChooses {
             return;
         }
         
-        for(int i=0; i<tq; i++){
-            for(int j=0; j<tq; j++){
-                if(chess[i][j] == 0){
-                    if(IsQueenSafe(chess, i, j)){
-                        chess[i][j] = qpsf+1;
-                        nqueens(qpsf+1, tq, chess);
-                        chess[i][j] = 0;
-                    }
+        for(int n=0; n<tq*tq; n++){
+            int i = n/tq;
+            int j = n%tq;
+            if(chess[i][j] == 0){
+                if(IsQueenSafe(chess, i, j)){
+                    chess[i][j] = qpsf+1;
+                    nqueens(qpsf+1, tq, chess);
+                    chess[i][j] = 0;
                 }
             }
         }
