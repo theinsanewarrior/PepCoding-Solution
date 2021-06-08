@@ -5,30 +5,36 @@ public class WordsKLength1 {
         String str = br.readLine();
         int k = Integer.parseInt(br.readLine());
     
-        HashMap<Character, Boolean> hm = new HashMap<>();
+        HashSet<Character> unique = new HashSet<>();
         String ustr = "";
         for (char ch : str.toCharArray()) {
-          if (hm.containsKey(ch) == false) {
-            hm.put(ch, false);
+          if (unique.contains(ch) == false) {
+            unique.add(ch);
             ustr += ch;
           }
         }
+        Character[] arr = new Character[k];
+        wordsKLength(0, ustr, arr, 0);
         
-        wordKLength(0, k, hm, ustr, "");
       }
       
-      public static void wordKLength(int count, int k, HashMap<Character, Boolean> hm, String ustr, String asf){
-          if(count == k){
-              System.out.println(asf);
+      public static void wordsKLength(int idx, String ustr, Character[] arr, int occupied){
+          if(idx == ustr.length()){
+              if(occupied == arr.length){
+                  for(int i=0; i<arr.length; i++){
+                      System.out.print(arr[i]);
+                  }
+                  System.out.println();
+              }
               return;
           }
-          for(int i=0; i<ustr.length(); i++){
-              char ch = ustr.charAt(i);
-              if(hm.get(ch) == false){
-                hm.put(ch, true);
-                wordKLength(count+1, k, hm, ustr, asf+ch);
-                hm.put(ch, false);
+          for(int i=0; i<arr.length; i++){
+              if(arr[i] == null){
+                  arr[i] = ustr.charAt(idx);
+                  wordsKLength(idx+1, ustr, arr, occupied+1);
+                  arr[i] = null;
               }
           }
+          wordsKLength(idx+1, ustr, arr, occupied);
       }
 }
