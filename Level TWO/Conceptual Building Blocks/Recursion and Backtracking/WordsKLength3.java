@@ -23,7 +23,7 @@ public class WordsKLength3 {
               return;
           }
           char ch = str.charAt(idx);
-          int lidx = lastIdx.get(ch);
+          int lidx = lastIdx.get(ch);   i
         //   yes
           for(int i=lidx+1; i<ans.length; i++){
               if(ans[i] == null){
