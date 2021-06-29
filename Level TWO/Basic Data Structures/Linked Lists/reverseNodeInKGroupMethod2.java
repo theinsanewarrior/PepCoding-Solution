@@ -48,15 +48,9 @@ public class reverseNodeInKGroupMethod2 {
                 }
                 curr = next;
             }
-            if(ohead == otail){
-                ohead.next = chead;
-                otail = ctail;
-            }
-            else{
-                otail.next = chead;
-                otail = ctail;
-            }
-            nrsf-=k;
+            otail.next = chead;
+            otail = ctail;
+            nrsf-=k;    
         }
         if(nrsf!=0)
             otail.next = curr;
