@@ -1,5 +1,5 @@
 import java.util.*;
-public class rightView {
+public class widthOfBinaryTree {
     public static Scanner scn = new Scanner(System.in);
 
     public static class TreeNode {
@@ -11,23 +11,27 @@ public class rightView {
             this.val = val;
         }
     }
+    
+    static int minhl;
+    static int maxhl;
 
-    public static ArrayList<Integer> rightView(TreeNode root) {
-        Queue<TreeNode> q = new ArrayDeque<>();
-        q.add(root);
-        ArrayList<Integer> ans = new ArrayList<>();
-        while(!q.isEmpty()){
-            int size = q.size();
-            ans.add(q.peek().val);
-            for(int i=0; i<size; i++){
-                TreeNode curr = q.remove();
-                if(curr.right!=null)
-                    q.add(curr.right);
-                if(curr.left!=null)
-                    q.add(curr.left);
-            }
-        }
-        return ans;
+    public static int width(TreeNode root) {
+        minhl = 0;
+        maxhl = 0;
+        width(root, 0);
+        return maxhl-minhl+1;
+    }
+    
+    public static void width(TreeNode root, int h){
+        if(h<minhl)
+            minhl = h;
+        if(h>maxhl)
+            maxhl = h;
+        
+        if(root.left!=null)
+            width(root.left, h-1);
+        if(root.right!=null)
+            width(root.right, h+1);
     }
 
     // input_section=================================================
@@ -53,11 +57,10 @@ public class rightView {
         int[] IDX = new int[1];
         TreeNode root = createTree(arr, IDX);
 
-        ArrayList<Integer> ans = rightView(root);
-        for(Integer i : ans) System.out.println(i); 
+        System.out.println(width(root));
     }
 
     public static void main(String[] args) {
         solve();
-    }   
+    }
 }

@@ -1,5 +1,5 @@
 import java.util.*;
-public class rightView {
+public class diagonalViewAntiClockwise {
     public static Scanner scn = new Scanner(System.in);
 
     public static class TreeNode {
@@ -12,20 +12,23 @@ public class rightView {
         }
     }
 
-    public static ArrayList<Integer> rightView(TreeNode root) {
-        Queue<TreeNode> q = new ArrayDeque<>();
+    public static ArrayList<ArrayList<Integer>> diagonalOrder(TreeNode root) {
+        Queue<TreeNode> q = new ArrayDeque();
+        ArrayList<ArrayList<Integer>> ans = new ArrayList();
         q.add(root);
-        ArrayList<Integer> ans = new ArrayList<>();
-        while(!q.isEmpty()){
+        while(q.size()>0){
             int size = q.size();
-            ans.add(q.peek().val);
+            ArrayList<Integer> single = new ArrayList();
             for(int i=0; i<size; i++){
                 TreeNode curr = q.remove();
-                if(curr.right!=null)
-                    q.add(curr.right);
-                if(curr.left!=null)
-                    q.add(curr.left);
+                while(curr!=null){
+                    single.add(curr.val);
+                    if(curr.right!=null)
+                        q.add(curr.right);
+                    curr = curr.left;
+                }
             }
+            ans.add(single);
         }
         return ans;
     }
@@ -53,11 +56,17 @@ public class rightView {
         int[] IDX = new int[1];
         TreeNode root = createTree(arr, IDX);
 
-        ArrayList<Integer> ans = rightView(root);
-        for(Integer i : ans) System.out.println(i); 
+        ArrayList<ArrayList<Integer>> ans = diagonalOrder(root);
+        int idx = 0;
+        for (ArrayList<Integer> i : ans) {
+            System.out.print(idx++ + " -> ");
+            for (Integer j : i)
+                System.out.print(j + " ");
+            System.out.println();
+        }
     }
 
     public static void main(String[] args) {
         solve();
-    }   
+    }
 }
