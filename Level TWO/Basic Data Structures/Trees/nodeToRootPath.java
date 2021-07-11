@@ -71,5 +71,5 @@ public class nodeToRootPath {
 
   public static void main(String[] args) {
     solve();
-  } 
+  }
 }
