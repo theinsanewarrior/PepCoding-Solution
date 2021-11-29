@@ -5,7 +5,7 @@ public class BarChart {
         Scanner scn = new Scanner(System.in);
         int n = scn.nextInt();
         int[] arr = new int[n];
-        int max = Integer.MIN_VALUE;
+        int max = Integer.MIN_VALUE; //min integer possible
         for(int i=0; i<n; i++){
             arr[i] = scn.nextInt();
             if(arr[i] > max)
